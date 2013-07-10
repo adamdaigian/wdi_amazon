@@ -3,6 +3,7 @@ class Item < ActiveRecord::Base
 
   belongs_to :seller
   belongs_to :user
+  has_many :reviews
 
   def available?
   	self.user.blank?

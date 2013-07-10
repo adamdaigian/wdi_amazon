@@ -1,0 +1,19 @@
+<h1>New Reviews</h1>
+
+<%= form_for @review, :url => reviews_path, :method => "post" do |f| %>
+
+  <!--   <div>
+  <%# f.select :item_id %>
+  <%# f.collection_select(:item_id, Item.all, :id, :title, {:prompt => "select item"}) %>
+  </div> -->
+
+  <div>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  </div>
+
+
+  <div>
+  <%= f.button %>
+  </div>
+<% end %>

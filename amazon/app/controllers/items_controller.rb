@@ -13,6 +13,13 @@ class ItemsController < ApplicationController
 
 	def create
 		@item = Item.new(params[:item])
+
+		if @item.save
+
+		  redirect_to items_path
+		else
+		  render "new"
+		end
 	end
 
 	def edit
@@ -21,9 +28,17 @@ class ItemsController < ApplicationController
 
 	def update
 		@item = Item.find(params[:id])
+
+		if @item.update_attributes(params[:item])
+	   	  redirect_to items_path
+	   	else
+	   	  render "edit"
+	   	end
 	end
 
 	def destroy
 		@item = Item.find(params[:id])
+		@item.destroy
+		redirect_to items_path
 	end
 end
